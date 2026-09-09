@@ -1,0 +1,93 @@
+site_name: ロマンスの疫学
+site_description: ロスマンの疫学『科学的思考への誘い』をもじった疫学入門。結核やペストの代わりに「恋の病」を題材に、リスク・発生率・有病割合・RR・IRR を学ぶ。
+site_author: ichirio
+site_url: https://ichirio.github.io/romance-ekigaku/
+repo_url: https://github.com/ichirio/romance-ekigaku
+
+theme:
+  name: material
+  language: ja
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: pink
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: ダークモードへ
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: pink
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: ライトモードへ
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - toc.follow
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - search.suggest
+    - search.highlight
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify {kwds: {case: lower}}
+  - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.keys
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js
+  - javascripts/katex.js
+
+plugins:
+  - search:
+      lang: ja
+
+# 話数の番号は安定 ID（振り直さない）。
+nav:
+  - はじめに: index.md
+  - 世界の設定（沿線と登場人物）: setting.md
+  - 恋の病↔疫学用語 対照表: glossary.md
+  - 全体ロードマップ: roadmap.md
+  - 第4章　恋の病の発生と因果的効果の測定:
+      - 章の見取り図: ch04/index.md
+      - 4-1 「恋に落ちた人」を数える前に: ch04/ch04-01.md
+      - 4-2 リスク ― 期間を言わない切符は使えない: ch04/ch04-02.md
+      - 4-3 恋人年 ― 待った時間を数える: ch04/ch04-03.md
+      - 4-4 リスクと率は、どこが違うのか: ch04/ch04-04.md
+      - 4-5 片思いの有病割合 ― 一番危ない勘違い: ch04/ch04-05.md
+      - 4-6 途中で降りる人たち: ch04/ch04-06.md
+      - 4-7 効果の測り方① 比: ch04/ch04-07.md
+      - 4-8 効果の測り方② 差と「益」: ch04/ch04-08.md

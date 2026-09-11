@@ -29,7 +29,7 @@
 |---|---|---|
 | 研究集団 | study population | 恋都スタディの参加者 |
 | リスク集団 | population at risk | 発症していない人。片思い中・交際中の人は入らない |
-| 閉鎖集団 | closed population | 2026年4月入学の新入生200人。途中から誰も入らない |
+| 閉鎖集団 | closed population | 2026年4月入学の参加者200人。途中から誰も入らない |
 | 開放集団（動的集団） | open / dynamic population | 軽音サークルの部員。出入りがある |
 | 人時 | person-time | 恋に落ちうる状態でいた時間の、全員ぶんの合計 |
 | 人年 | person-year | 人時の単位のひとつ |

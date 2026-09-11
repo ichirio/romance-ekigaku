@@ -1,5 +1,5 @@
 site_name: ロマンスの疫学
-site_description: 恋の病を題材にした疫学入門。リスク、発生率、有病割合、リスク比、発生率比、NNT を、架空の私鉄・恋ヶ丘電鉄の沿線データで学ぶ。
+site_description: 恋の病を題材にした疫学入門。リスク、発生率、有病割合、リスク比、発生率比、NNT を、京都の架空の大学・恋都大学の追跡データで学ぶ。
 site_author: ichirio
 site_url: https://ichirio.github.io/romance-ekigaku/
 repo_url: https://github.com/ichirio/romance-ekigaku
@@ -78,7 +78,7 @@ plugins:
 # 話数の番号は安定 ID（振り直さない）。
 nav:
   - はじめに: index.md
-  - 恋ヶ丘大学と、その人々: setting.md
+  - 恋都大学と、その人々: setting.md
   - 用語集: glossary.md
   - 全体ロードマップ: roadmap.md
   - 第4章　恋の病の発生と因果的効果の測定:

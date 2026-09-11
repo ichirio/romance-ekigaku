@@ -1,0 +1,1846 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="恋の病を題材にした疫学入門。リスク、発生率、有病割合、リスク比、発生率比、NNT を、京都の架空の大学・恋都大学の追跡データで学ぶ。">
+      
+      
+        <meta name="author" content="ichirio">
+      
+      
+        <link rel="canonical" href="https://ichirio.github.io/romance-ekigaku/ch04/ch04-07/">
+      
+      
+        <link rel="prev" href="../ch04-06/">
+      
+      
+        <link rel="next" href="../ch04-08/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>4-7 効果の測り方① 比 - ロマンスの疫学</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4-7-1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../.." title="ロマンスの疫学" class="md-header__button md-logo" aria-label="ロマンスの疫学" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ロマンスの疫学
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4-7 効果の測り方① 比
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="indigo"  aria-label="ダークモードへ"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="ダークモードへ" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="indigo"  aria-label="ライトモードへ"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="ライトモードへ" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ichirio/romance-ekigaku" title="リポジトリへ" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ロマンスの疫学" class="md-nav__button md-logo" aria-label="ロマンスの疫学" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ロマンスの疫学
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ichirio/romance-ekigaku" title="リポジトリへ" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    はじめに
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第4章　恋の病の発生と因果的効果の測定
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第4章　恋の病の発生と因果的効果の測定
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4-1 「恋に落ちた人」を数える前に
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4-2 リスク ― 期間は、リスクの一部
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4-3 人年 ― 見ていた時間を数える
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4-4 リスクと率は、どこが違うのか
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4-5 片思いの有病割合 ― 一番危ない勘違い
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4-6 途中で降りる人たち
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4-7 効果の測り方① 比
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4-7 効果の測り方① 比
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二つの集団を並べる
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        リスク比（RR）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="リスク比（RR）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        「出れば出会える」わけではない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        比の性質
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#irr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        発生率比（IRR）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prrr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        有病割合比（PR）は、RR の代わりにならない
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#or" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オッズ比（OR）について一言
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#218" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        そして、この 2.18 は「効果」なのか
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手を動かす
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ロマンス先生の赤ペン ― よくある誤り
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        この回に出てきた用語
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        練習問題
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4-8 効果の測り方② 差と「益」
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ch05/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第5章　疫学研究の種類
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    第5章　疫学研究の種類
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05/ch05-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5-1 割り付けるか、眺めるか
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05/ch05-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5-2 コホート研究 ― 曝露から出発して、待つ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05/ch05-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5-3 症例対照研究① なぜ全員を追わなくてよいのか
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05/ch05-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5-4 症例対照研究② 対照をどこから選ぶか
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05/ch05-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5-5 どの型を選ぶか
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    巻末
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    巻末
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    用語集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    恋都大学と、その人々
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全体ロードマップ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二つの集団を並べる
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        リスク比（RR）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="リスク比（RR）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        「出れば出会える」わけではない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        比の性質
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#irr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        発生率比（IRR）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prrr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        有病割合比（PR）は、RR の代わりにならない
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#or" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オッズ比（OR）について一言
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#218" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        そして、この 2.18 は「効果」なのか
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手を動かす
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ロマンス先生の赤ペン ― よくある誤り
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        この回に出てきた用語
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        練習問題
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="4-7-1">4-7　効果の測り方① ― 比<a class="headerlink" href="#4-7-1" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>恋都大学　― リスク比、発生率比、有病割合比、そしてオッズ比</p>
+</blockquote>
+<hr />
+<p>四月、恋都大学の掲示板は新歓の貼り紙で埋まる。
+そのうちの何割かは、名目上サークルの説明会で、実質は合コンである。</p>
+<p>雪野は半年かけて、恋都スタディの参加者のうち、
+<strong>追跡開始の時点で恋に落ちうる状態にあった 200人</strong>を、
+「1年のあいだに合コンに出たか」で二つに分けた。
+新入生だけの集団ではない。学年もばらばらの 200人である。</p>
+<blockquote>
+<p>「先生、ついにデータが揃いました。<strong>合コンは効きます</strong>」</p>
+<p>「まだ何も計算していませんね」とロマンス先生。「表を見せてください」</p>
+</blockquote>
+<hr />
+<h2 id="_1">二つの集団を並べる<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>疫学の比較は、この形から始まります。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>人数</th>
+<th>1年で恋に落ちた</th>
+<th>観察人時</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>合コンに出た</strong>（曝露あり）</td>
+<td>80</td>
+<td>32</td>
+<td>64.0 人年</td>
+</tr>
+<tr>
+<td><strong>出なかった</strong>（曝露なし）</td>
+<td>120</td>
+<td>22</td>
+<td>110.0 人年</td>
+</tr>
+<tr>
+<td>合計</td>
+<td>200</td>
+<td>54</td>
+<td>174.0 人年</td>
+</tr>
+</tbody>
+</table>
+<p>ここまでは、ただの記述です。<strong>比較は、指標を作ってから始まります。</strong></p>
+<hr />
+<h2 id="rr">リスク比（RR）<a class="headerlink" href="#rr" title="Permanent link">&para;</a></h2>
+<p>まず各群のリスク（1年）を出します。</p>
+<div class="arithmatex">\[
+R_1 = \frac{32}{80} = 0.400
+\qquad
+R_0 = \frac{22}{120} = 0.183
+\]</div>
+<p>その比が<strong>リスク比</strong>です。</p>
+<div class="arithmatex">\[
+RR = \frac{R_1}{R_0} = \frac{0.400}{0.183} = 2.18
+\]</div>
+<p><strong>合コンに出た人は、出なかった人に比べて、1年で恋に落ちるリスクが 2.18倍。</strong>
+「合コン」「1年」「恋に落ちる」の三点を添えないと、この数字はひとり歩きします。</p>
+<h3 id="_2">「出れば出会える」わけではない<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>小堀が、表から目を上げずに言った。</p>
+<blockquote>
+<p>「先生。<strong>合コンに出たからって、出会えるとは限りませんよね。</strong>
+出ても何も起きなかった人のほうが、たぶん多い。
+それでも合コンは『原因』なんですか」</p>
+<p>「原因です。ただし、<strong>全員にとっての原因ではありません</strong>」とロマンス先生。</p>
+</blockquote>
+<p>先生は黒板に、円をいくつか描いた。</p>
+<blockquote>
+<p>「一つの恋が生まれるには、いくつもの条件が同時に揃う必要があります。
+恋に落ちうる状態であること。相手がいること。間が悪くないこと。
+―― そのうちのどれか一つでも欠ければ、恋は生まれない。</p>
+<p>合コンは、<strong>その条件のひとつを埋める働き</strong>をします。
+埋まった人にとっては原因になり、埋まらなかった人にとっては何も起こさない。</p>
+<p><strong>だからリスクが 100 % にならないんです。</strong>
+もし出れば必ず出会えるなら、曝露群のリスクは 40 % ではなく 100 % のはずでしょう」</p>
+</blockquote>
+<p>雪野が口を挟んだ。</p>
+<blockquote>
+<p>「じゃあ、40 % のうちどこまでが合コンのぶんなんですか」</p>
+<p>「<strong>いい質問です。</strong>次回、その割合を数字で出します」</p>
+</blockquote>
+<h3 id="_3">比の性質<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>性質</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>基準値は 1</strong></td>
+<td>1 なら差がない。0 なら差がない、ではない</td>
+</tr>
+<tr>
+<td><strong>範囲は 0 〜 ∞</strong></td>
+<td>上には無限、下には 0 まで</td>
+</tr>
+<tr>
+<td><strong>非対称に見える</strong></td>
+<td>2倍と 0.5倍は「同じ強さ」だが、1 からの距離は違う</td>
+</tr>
+<tr>
+<td><strong>対数で対称になる</strong></td>
+<td><span class="arithmatex">\(\log 2 = 0.693\)</span>、<span class="arithmatex">\(\log 0.5 = -0.693\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">だから比は対数で扱う</p>
+<p>信頼区間を計算するときに <span class="arithmatex">\(\log RR\)</span> を使うのは、この対称性のためです。
+第5章で効いてきます。</p>
+</div>
+<hr />
+<h2 id="irr">発生率比（IRR）<a class="headerlink" href="#irr" title="Permanent link">&para;</a></h2>
+<p>人時を使えば、率どうしでも比べられます。</p>
+<div class="arithmatex">\[
+IR_1 = \frac{32}{64.0} = 0.500 \ /\text{人年}
+\qquad
+IR_0 = \frac{22}{110.0} = 0.200 \ /\text{人年}
+\]</div>
+<div class="arithmatex">\[
+IRR = \frac{0.500}{0.200} = 2.50
+\]</div>
+<p>RR は 2.18、IRR は 2.50。<strong>同じデータなのに、値が違います。</strong></p>
+<div class="admonition abstract">
+<p class="admonition-title">なぜ RR と IRR はずれるのか</p>
+<p>リスクには <strong>1 という天井</strong>があります。
+発生が多い群ほど分母（リスク集団）が早く痩せるので、
+リスクは頭打ちになりやすい。</p>
+<p>率にはその天井がありません。
+したがって<strong>アウトカムが多いほど、<span class="arithmatex">\(RR\)</span> は <span class="arithmatex">\(IRR\)</span> より 1 に近づきます。</strong></p>
+<p>発生がまれなときは、両者はほとんど一致します。</p>
+</div>
+<p>雪野が尋ねた。</p>
+<blockquote>
+<p>「じゃあ、どっちを報告すればいいんですか」</p>
+<p>「<strong>追跡の長さが人によって違うなら率</strong>、
+全員を同じ期間追えたならリスクでよい」とロマンス先生。
+「大事なのは<strong>どちらを使ったか書くこと</strong>です。
+2.18 と 2.50 のどちらも正しく、どちらも別のことを言っています」</p>
+</blockquote>
+<hr />
+<h2 id="prrr">有病割合比（PR）は、RR の代わりにならない<a class="headerlink" href="#prrr" title="Permanent link">&para;</a></h2>
+<p><a href="../ch04-05/">4-5</a> の二つの集団を思い出してください。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>発生率 <span class="arithmatex">\(IR\)</span></th>
+<th>罹病期間 <span class="arithmatex">\(D\)</span></th>
+<th>有病割合 <span class="arithmatex">\(P\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>恋都大学の学生</td>
+<td>0.20 /人年</td>
+<td>0.5年</td>
+<td>9.1 %</td>
+</tr>
+<tr>
+<td>片恋野高校の生徒</td>
+<td>0.10 /人年</td>
+<td>2.0年</td>
+<td>16.7 %</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>指標</th>
+<th>値</th>
+<th>向き</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>有病割合比 <span class="arithmatex">\(PR\)</span></td>
+<td><strong>1.83</strong></td>
+<td>片恋野高校のほうが<strong>多い</strong></td>
+</tr>
+<tr>
+<td>発生率比 <span class="arithmatex">\(IRR\)</span></td>
+<td><strong>0.50</strong></td>
+<td>片恋野高校のほうが<strong>少ない</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition danger">
+<p class="admonition-title">比が逆を向く</p>
+<p><strong>同じ二つの集団で、<span class="arithmatex">\(PR\)</span> と <span class="arithmatex">\(IRR\)</span> が反対方向を指しています。</strong></p>
+<p>有病割合には罹病期間 <span class="arithmatex">\(D\)</span> が掛かっているからです。</p>
+<div class="arithmatex">\[
+\frac{P}{1-P} = IR \times D
+\]</div>
+<p><span class="arithmatex">\(PR\)</span> が 1 より大きいとき、それは
+「発生が多い」のか「治りにくい」のか、<strong><span class="arithmatex">\(PR\)</span> だけでは決して分かりません。</strong></p>
+<p><strong>原因を語るなら、有病割合比を持ち出さないこと。</strong></p>
+</div>
+<hr />
+<h2 id="or">オッズ比（OR）について一言<a class="headerlink" href="#or" title="Permanent link">&para;</a></h2>
+<p>比較の指標には、もう一つ<strong>オッズ比</strong>があります。</p>
+<div class="arithmatex">\[
+OR = \frac{32/48}{22/98} = \frac{0.667}{0.224} = 2.97
+\]</div>
+<p>RR が 2.18 なのに、OR は <strong>2.97</strong>。かなり大きく出ています。</p>
+<div class="admonition warning">
+<p class="admonition-title">オッズ比はリスク比を誇張する</p>
+<p>アウトカムがまれ（数 % 以下）なら <span class="arithmatex">\(OR \approx RR\)</span> です。
+これを<strong>希少疾病近似（rare disease assumption）</strong>と呼びます。
+しかしここでは 40 % と 18 % ― まったくまれではありません。
+その結果、OR は RR より 1 から遠い値になります。</p>
+<p><strong>オッズ比を「〜倍」と読み替えて説明してはいけません。</strong>
+「合コンに出た人は 2.97倍恋に落ちる」は誤りです（正しくは 2.18倍）。</p>
+<p>オッズ比が主役になるのは、ケースコントロール研究など、
+リスクを直接計算できない設計のときです（第3章）。</p>
+</div>
+<hr />
+<h2 id="218">そして、この 2.18 は「効果」なのか<a class="headerlink" href="#218" title="Permanent link">&para;</a></h2>
+<p>雪野が勝ち誇る。</p>
+<blockquote>
+<p>「2.18倍！ <strong>合コンには効果があります</strong>」</p>
+</blockquote>
+<p>ロマンス先生は静かに言った。</p>
+<blockquote>
+<p>「いいえ。<strong>合コンに出る人と出ない人が、そもそも違う人たち</strong>だとしたら？」</p>
+<p>「……えっ」</p>
+<p>「恋愛に積極的な人ほど、合コンに出たくなる。
+そして恋愛に積極的な人ほど、合コンに出なくても恋に落ちる。
+<strong>その場合、2.18 のうちどこまでが合コンのぶんか、この表からは分かりません。</strong>」</p>
+</blockquote>
+<p>ここまでで測れたのは<strong>関連（association）</strong>であって、<strong>効果（effect）</strong>ではありません。
+2.18 を「合コンの効果」と呼べるのは、出た群と出なかった群が
+<strong>合コン以外の点で交換可能</strong>なときだけです。</p>
+<p>その条件を扱うのが第6章です。
+もっとも、まず正しく測れなければ、交絡の議論にも進めません。</p>
+<hr />
+<h2 id="_4">手を動かす<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="python" name="__tabbed_1" type="radio" /><input id="r" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="python">Python</label><label for="r">R</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">a</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">pt1</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span>  <span class="mi">80</span><span class="p">,</span>  <span class="mf">64.0</span>   <span class="c1"># 曝露あり: 件数, 人数, 人年</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">b</span><span class="p">,</span> <span class="n">n0</span><span class="p">,</span> <span class="n">pt0</span> <span class="o">=</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mf">110.0</span>   <span class="c1"># 曝露なし</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">R1</span><span class="p">,</span> <span class="n">R0</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">n1</span><span class="p">,</span> <span class="n">b</span> <span class="o">/</span> <span class="n">n0</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">IR1</span><span class="p">,</span> <span class="n">IR0</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">pt1</span><span class="p">,</span> <span class="n">b</span> <span class="o">/</span> <span class="n">pt0</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"R1, R0  :"</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">R1</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">R0</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>     <span class="c1"># 0.4 0.1833</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"RR      :"</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">R1</span> <span class="o">/</span> <span class="n">R0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>              <span class="c1"># 2.182</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"IR1,IR0 :"</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">IR1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">IR0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>   <span class="c1"># 0.5 0.2</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"IRR     :"</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">IR1</span> <span class="o">/</span> <span class="n">IR0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>            <span class="c1"># 2.5</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">OR</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="p">(</span><span class="n">n1</span> <span class="o">-</span> <span class="n">a</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">b</span> <span class="o">/</span> <span class="p">(</span><span class="n">n0</span> <span class="o">-</span> <span class="n">b</span><span class="p">))</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"OR      :"</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">OR</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>                   <span class="c1"># 2.97</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">a</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">32</span><span class="p">;</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">80</span><span class="p">;</span><span class="w">  </span><span class="n">pt1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">64.0</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">b</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">22</span><span class="p">;</span><span class="w"> </span><span class="n">n0</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">120</span><span class="p">;</span><span class="w"> </span><span class="n">pt0</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">110.0</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">R1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">n1</span><span class="p">;</span><span class="w"> </span><span class="n">R0</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">n0</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">IR1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pt1</span><span class="p">;</span><span class="w"> </span><span class="n">IR0</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pt0</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nf">cat</span><span class="p">(</span><span class="s">"R1, R0  :"</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">R1</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">),</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">R0</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">),</span><span class="w"> </span><span class="s">"\n"</span><span class="p">)</span><span class="w">   </span><span class="c1"># 0.4 0.1833</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nf">cat</span><span class="p">(</span><span class="s">"RR      :"</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">R1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">R0</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="s">"\n"</span><span class="p">)</span><span class="w">            </span><span class="c1"># 2.182</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nf">cat</span><span class="p">(</span><span class="s">"IR1,IR0 :"</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">IR1</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">IR0</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="s">"\n"</span><span class="p">)</span><span class="w"> </span><span class="c1"># 0.5 0.2</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="nf">cat</span><span class="p">(</span><span class="s">"IRR     :"</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">IR1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">IR0</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="s">"\n"</span><span class="p">)</span><span class="w">          </span><span class="c1"># 2.5</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">OR</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">n1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">n0</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">))</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="nf">cat</span><span class="p">(</span><span class="s">"OR      :"</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">OR</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="s">"\n"</span><span class="p">)</span><span class="w">                 </span><span class="c1"># 2.97</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="_5">ロマンス先生の赤ペン ― よくある誤り<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<div class="admonition failure">
+<p class="admonition-title">誤り1　どの比なのか書かない</p>
+<p>「2.18倍」だけでは、RR なのか IRR なのか OR なのか分かりません。
+値も解釈も違います。<strong>指標名を必ず添える。</strong></p>
+</div>
+<div class="admonition failure">
+<p class="admonition-title">誤り2　オッズ比を「〜倍」と読む</p>
+<p>アウトカムがまれでないとき、OR は RR より 1 から遠くなります。
+2.97 を「2.97倍恋に落ちる」と説明したら、それは 36 % の水増しです。</p>
+</div>
+<div class="admonition failure">
+<p class="admonition-title">誤り3　有病割合比で原因を語る</p>
+<p><span class="arithmatex">\(PR\)</span> には罹病期間が混ざっています。
+片恋野高校の例では、<span class="arithmatex">\(PR = 1.83\)</span> と <span class="arithmatex">\(IRR = 0.50\)</span> が<strong>正反対を向いていました</strong>。</p>
+</div>
+<hr />
+<h2 id="_6">この回に出てきた用語<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>用語</th>
+<th>English</th>
+<th>この回での意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>リスク比</td>
+<td>risk ratio (RR)</td>
+<td>合コンに出た人と出なかった人のリスクの比</td>
+</tr>
+<tr>
+<td>発生率比</td>
+<td>incidence rate ratio (IRR)</td>
+<td>同じく発生率の比</td>
+</tr>
+<tr>
+<td>有病割合比</td>
+<td>prevalence ratio (PR)</td>
+<td>有病割合どうしの比</td>
+</tr>
+<tr>
+<td>オッズ比</td>
+<td>odds ratio (OR)</td>
+<td>オッズどうしの比</td>
+</tr>
+<tr>
+<td>希少疾病近似</td>
+<td>rare disease assumption</td>
+<td>アウトカムがまれなら OR ≒ RR</td>
+</tr>
+<tr>
+<td>曝露</td>
+<td>exposure</td>
+<td>合コンに出たかどうか</td>
+</tr>
+<tr>
+<td>関連</td>
+<td>association</td>
+<td>数字の上での関係</td>
+</tr>
+<tr>
+<td>効果</td>
+<td>effect</td>
+<td>合コンそのものが起こした変化</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_7">練習問題<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p><strong>問1</strong>　次のうち、RR = 1 が意味することとして正しいのはどれか。</p>
+<ol>
+<li>曝露と発生に関連がない</li>
+<li>発生がまったく起きていない</li>
+<li>曝露群のリスクが 100 % である</li>
+<li>効果がないことが証明された</li>
+</ol>
+<details class="success">
+<summary>解答</summary>
+<p><strong>1。</strong></p>
+<p>比の基準値は 0 ではなく <strong>1</strong> です。1 なら両群のリスクが等しい、
+つまり数字の上では関連がありません。</p>
+<p>4 は言い過ぎです。関連がないことと、
+<strong>効果がないことが証明された</strong>ことは別です（交絡が打ち消しあっている可能性もある）。
+また、推定値が 1 ちょうどでも、その周りの不確かさの幅は残ります（第5章）。</p>
+</details>
+<hr />
+<p><strong>問2</strong>　あるコホートで、RR = 2.18、IRR = 2.50 だった。
+この二つがずれた理由として最も適切なのは。</p>
+<ol>
+<li>計算間違い</li>
+<li>アウトカムがまれではなく、リスクに天井があるため</li>
+<li>曝露の定義が群で違うため</li>
+<li>有病割合が混ざっているため</li>
+</ol>
+<details class="success">
+<summary>解答</summary>
+<p><strong>2。</strong></p>
+<p>リスクは 1 を超えられないので、発生が多い群ほど頭打ちになります。
+その結果、<span class="arithmatex">\(RR\)</span> は <span class="arithmatex">\(IRR\)</span> より 1 に近づきます。</p>
+<p>ここでは曝露群のリスクが 40 % もあるので、ずれがはっきり出ました。
+アウトカムがまれなら、両者はほぼ一致します。</p>
+</details>
+<hr />
+<p><strong>問3</strong>　「合コンに出た人のほうが恋に落ちるリスクが 2.18倍」と分かった。
+これを「合コンには恋を生む効果がある」と結論してよいか。30〜50字で。</p>
+<details class="success">
+<summary>解答例</summary>
+<p><strong>「よくない。合コンに出る人はもともと恋愛に積極的かもしれず、関連と効果は別だから」</strong></p>
+<p>測れたのは<strong>関連</strong>です。
+それを<strong>効果</strong>と呼ぶには、二つの群が合コン以外の点で交換可能である必要があります。
+その検討が第6章（交絡）です。</p>
+</details>
+<hr />
+<div class="admonition quote">
+<p class="admonition-title">次回予告 ― 4-8 効果の測り方②　差と「益」</p>
+<p>2.18倍。ではこの大学で、<strong>何人を呼べば一組の恋が増えるのか</strong>。
+比では絶対に答えられないこの問いに、<strong>差</strong>が答えます。</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="フッター" >
+        
+          
+          <a href="../ch04-06/" class="md-footer__link md-footer__link--prev" aria-label="前: 4-6 途中で降りる人たち">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                前
+              </span>
+              <div class="md-ellipsis">
+                4-6 途中で降りる人たち
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ch04-08/" class="md-footer__link md-footer__link--next" aria-label="次: 4-8 効果の測り方② 差と「益」">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                次
+              </span>
+              <div class="md-ellipsis">
+                4-8 効果の測り方② 差と「益」
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "content.tabs.link", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+    
+  </body>
+</html>
